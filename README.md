@@ -1,6 +1,6 @@
 # Why Is CI still Doing Your Promotions? 
 
-Date and Time: 2025-11-08 10:10–10:40
+Date and Time: 2025-11-08 10:10–10:40 |
 
 As teams move from traditional CI/CD pipelines to GitOps tools like Argo CD, they often hit a common roadblock: how do you manage promotions across dev, staging, and production? Tools like Argo CD and Flux often leave a gap when it comes to multi-stage promotions. What used to be a simple approval click now involves juggling image tags, config changes, and pull requests across multiple repos. This shift often creates confusion, adds manual steps, and breaks the developer workflow.
 
