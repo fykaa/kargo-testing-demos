@@ -144,12 +144,20 @@ spec:
       message: ${{ "a" }}${% "b" %}${{ "c" }}
       # Result: "abc" (all three expressions evaluated in order)
   
+  # Test 11: Multiple standard delimiters with literal separator
+  - uses: git-commit
+    as: commit-test-11
+    config:
+      path: ./out
+      message: ${{ ctx.stage }}-${% imageFrom(vars.imageRepo).Tag %}
+      # Result: "test-1.26.0" (both expressions evaluated with literal - in between)
+  
   # Final commit with actual deployment info
   - uses: git-commit
     as: commit
     config:
       path: ./out
-      message: ${{ 'Deployed ' + imageFrom(vars.imageRepo).Tag + ' to ' + ctx.stage }}
+      message: "${% quote('{\"metadata\": {\"labels\": {\"app\": \"nginx\"}}}') %}"
   - uses: git-push
     config:
       path: ./out
